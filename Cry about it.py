@@ -14,16 +14,15 @@ a = input("Enter:")
 
 driver.get("https://aslteachingresources.com/dictionary/{}/".format(a))
 
-iframe_element = driver.find_element(By.TAG_NAME, 'iframe')
+try:
+    iframe = driver.find_element(By.XPATH, '//iframe[@name="fitvid0"]')
+    
+    src = iframe.get_attribute('src')
 
-src = iframe_element.get_attribute('src')
-if src:
     print(src)
-else:
-    print("No 'src' attribute found.")
 
-
-print(src)
+except:
+    print("Not Available")
 
 time.sleep(100)
 
