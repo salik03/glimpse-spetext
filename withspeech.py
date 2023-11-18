@@ -19,7 +19,7 @@ try:
     a = recognizer.recognize_google(audio)
     print("You said: " + a)
 
-    driver.get("https://asl-lex.org/visualization/index.html?sign={}".format(a))
+    driver.get("https://aslteachingresources.com/dictionary/{}/".format(a))
 
     time.sleep(50)
 
