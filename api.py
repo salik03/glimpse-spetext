@@ -15,6 +15,7 @@ def get_youtube_src():
 
     service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
     driver = webdriver.Chrome(service=service, options=options)
 
     try:
@@ -33,7 +34,7 @@ def get_youtube_src():
         new_src = f"https://www.youtube.com/embed/{videoid}?start=4&end=3"
         return jsonify({'result': new_src})
 
-    except NoSuchElementException:
+    except:
         return jsonify({'result': 'Not Available'})
 
     finally:
